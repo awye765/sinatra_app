@@ -16,4 +16,17 @@ get '/poo' do
   'is shit'
 end
 
-:set session_secret, 'super secret'
+get '/random-cat' do
+  @name_generator = ["Amigo", "Oscar", "Viking"].sample
+  erb(:index)
+end
+
+get '/name-cat' do
+  p params[:name]
+  p params[:colour]
+  @colour = params[:colour]
+  @name_generator = params[:name]
+  erb(:index)
+end
+
+# :set session_secret, 'super secret'
